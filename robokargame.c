@@ -66,71 +66,60 @@ void CntrlMotors (void *data)
 
 void Navig (void *data)
 {
+
  for (;;)
  {
   if (myrobot.obstacle == 1) /* If blocked then reverse */
   {
    myrobot.rspeed = -LOW_SPEED; /* REVERSE */
    myrobot.lspeed = -LOW_SPEED;
-  }
-  else /* obstacle is far away & no collision */
-  {
-   myrobot.rspeed = MEDIUM_SPEED; /* move forward with medium speed */
-   myrobot.lspeed = MEDIUM_SPEED;
-  }
+  }else{
+  	  if (robo_lineSensor() == 2) /* go straight */
+	  {
+	   myrobot.rspeed = MEDIUM_SPEED;
+	   myrobot.lspeed = MEDIUM_SPEED;
+	  }else if (robo_lineSensor() == 1)
+	  {
+	    myrobot.rspeed = MEDIUM_SPEED; /* turn left */
+	   myrobot.lspeed = -MEDIUM_SPEED;
+	  }else if (robo_lineSensor() == 4)
+	  {
+	    myrobot.rspeed = -MEDIUM_SPEED; 
+	   myrobot.lspeed = MEDIUM_SPEED; /* turn right */
+	  }else if (robo_lineSensor() == 3)
+	  {
+	    myrobot.rspeed = MEDIUM_SPEED; 
+	   myrobot.lspeed = LOW_SPEED; /* corner left */
 
-//   for line sensor
-  if (robo_lineSensor() == 2 || robo_lineSensor() == 7) /* go straight */
-  {
-   myrobot.rspeed = MEDIUM_SPEED;
-   myrobot.lspeed = MEDIUM_SPEED;
-  }else if (robo_lineSensor() == 1)
-  {
-    myrobot.rspeed = -LOW_SPEED; /* turn right */
-   myrobot.lspeed = MEDIUM_SPEED;
-  }else if (robo_lineSensor() == 4)
-  {
-    myrobot.rspeed = MEDIUM_SPEED; 
-   myrobot.lspeed = -LOW_SPEED; /* turn left */
-  }else if (robo_lineSensor() == 3)
-  {
-    myrobot.rspeed = - MEDIUM_SPEED; 
-   myrobot.lspeed = HIGH_SPEED; /* corner right */
-  }else if (robo_lineSensor() == 6)
-  {
-    myrobot.rspeed = HIGH_SPEED; 
-   myrobot.lspeed = - MEDIUM_SPEED; /* corner left */
-  }else if (robo_lineSensor() == 0)
-  {
-    myrobot.rspeed = -LOW_SPEED; 
-   myrobot.lspeed = -LOW_SPEED; /* stranded straight */
+	  }else if (robo_lineSensor() == 6)
+	  {
+	    myrobot.rspeed = LOW_SPEED; 
+	   myrobot.lspeed = MEDIUM_SPEED; /* corner right */
+	  }else if (robo_lineSensor() == 0)
+	  {
+	  	
+	    myrobot.rspeed = -LOW_SPEED; 
+	    myrobot.lspeed = -LOW_SPEED; /* stranded straight */
+
+		myrobot.rspeed = -LOW_SPEED;
+		myrobot.lspeed = MEDIUM_SPEED;
+		
+	  }
+  
+
+	// for light sensor
+	  if (robo_lightSensor() > 80) /* it is too bright, I'm photophobia */
+	  {
+	   myrobot.rspeed = -LOW_SPEED; /* turn right to avoid */
+	   myrobot.lspeed = LOW_SPEED;
+	  }else{
+	  }
   }
-  else{
-    // off track
-	if (robo_lineSensor() == 4){
-		myrobot.rspeed = -LOW_SPEED; 
-   		myrobot.lspeed = LOW_SPEED;
-	} else if (robo_lineSensor() == 1){
-		myrobot.rspeed = LOW_SPEED; 
-   		myrobot.lspeed = -LOW_SPEED;
-	}
+  
 
-	myrobot.rspeed = LOW_SPEED; 
-   	myrobot.lspeed = LOW_SPEED;
-
-  }
-
-// for light sensor
-  if (robo_lightSensor() > 60) /* it is too bright, I'm photophobia */
-  {
-   myrobot.rspeed = -LOW_SPEED; /* turn right to avoid */
-   myrobot.lspeed = LOW_SPEED;
-  } else{
-    myrobot.rspeed = MEDIUM_SPEED; /* move forward with medium speed */
-   myrobot.lspeed = MEDIUM_SPEED;
-  }
-
-  OSTimeDlyHMSM(0, 0, 0, 10); /* Task period ~ 500 ms */
+	OSTimeDlyHMSM(0, 0, 0, 10);
+	
+  /* OSTimeDlyHMSM(0, 0, 0, 10); Task period ~ 500 ms */
  }
 }
 
