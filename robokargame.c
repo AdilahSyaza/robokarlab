@@ -56,7 +56,7 @@ void CntrlMotors (void *data)
   speed_r = myrobot.rspeed;
   speed_l = myrobot.lspeed;
   robo_motorSpeed(speed_l, speed_r);
-  OSTimeDlyHMSM(0, 0, 0, 250); /* Task period ~ 250 ms */
+  OSTimeDlyHMSM(0, 0, 0, 10); /* Task period ~ 250 ms */
  }
 }
 
@@ -94,12 +94,12 @@ void Navig (void *data)
    myrobot.lspeed = -LOW_SPEED; /* turn left */
   }else if (robo_lineSensor() == 3)
   {
-    myrobot.rspeed = MEDIUM_SPEED; 
+    myrobot.rspeed = - MEDIUM_SPEED; 
    myrobot.lspeed = HIGH_SPEED; /* corner right */
   }else if (robo_lineSensor() == 6)
   {
     myrobot.rspeed = HIGH_SPEED; 
-   myrobot.lspeed = MEDIUM_SPEED; /* corner left */
+   myrobot.lspeed = - MEDIUM_SPEED; /* corner left */
   }else if (robo_lineSensor() == 0)
   {
     myrobot.rspeed = -LOW_SPEED; 
@@ -107,6 +107,17 @@ void Navig (void *data)
   }
   else{
     // off track
+	if (robo_lineSensor() == 4){
+		myrobot.rspeed = -LOW_SPEED; 
+   		myrobot.lspeed = LOW_SPEED;
+	} else if (robo_lineSensor() == 1){
+		myrobot.rspeed = LOW_SPEED; 
+   		myrobot.lspeed = -LOW_SPEED;
+	}
+
+	myrobot.rspeed = LOW_SPEED; 
+   	myrobot.lspeed = LOW_SPEED;
+
   }
 
 // for light sensor
@@ -119,7 +130,7 @@ void Navig (void *data)
    myrobot.lspeed = MEDIUM_SPEED;
   }
 
-  OSTimeDlyHMSM(0, 0, 0, 50); /* Task period ~ 500 ms */
+  OSTimeDlyHMSM(0, 0, 0, 10); /* Task period ~ 500 ms */
  }
 }
 
