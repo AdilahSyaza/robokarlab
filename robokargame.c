@@ -56,7 +56,7 @@ void CntrlMotors (void *data)
   speed_r = myrobot.rspeed;
   speed_l = myrobot.lspeed;
   robo_motorSpeed(speed_l, speed_r);
-  OSTimeDlyHMSM(0, 0, 0, 10); /* Task period ~ 250 ms */
+  OSTimeDlyHMSM(0, 0, 0, 5); /* Task period ~ 250 ms */
  }
 }
 
@@ -100,9 +100,6 @@ void Navig (void *data)
 	  	
 	    myrobot.rspeed = -LOW_SPEED; 
 	    myrobot.lspeed = -LOW_SPEED; /* stranded straight */
-
-		myrobot.rspeed = -LOW_SPEED;
-		myrobot.lspeed = MEDIUM_SPEED;
 		
 	  }
   
@@ -117,7 +114,7 @@ void Navig (void *data)
   }
   
 
-	OSTimeDlyHMSM(0, 0, 0, 10);
+	OSTimeDlyHMSM(0, 0, 0, 5);
 	
   /* OSTimeDlyHMSM(0, 0, 0, 10); Task period ~ 500 ms */
  }
