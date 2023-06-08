@@ -82,31 +82,31 @@ void Navig (void *data)
 	  }else if (robo_lineSensor() == 4)
 	  {
 	   count = 0;
-	    myrobot.rspeed = 70 ;/* turn left */
-	   myrobot.lspeed =  -40;
+	    myrobot.rspeed = 80 ;/* turn left */
+	   myrobot.lspeed =  -50;
 	  }else if (robo_lineSensor() == 1)
 	  {
-	    count = 0;
-	    myrobot.rspeed = -MEDIUM_SPEED; 
-	   myrobot.lspeed = 70; /* turn right */
+
+	    myrobot.rspeed = -50; 
+	   myrobot.lspeed = 80; /* turn right */
 
 	  }else if (robo_lineSensor() == 6)
 	  {
-	    count = 0;
-	    myrobot.rspeed = MEDIUM_SPEED; 
-	   myrobot.lspeed = -LOW_SPEED; /* corner left */
+
+	    myrobot.rspeed = 65; 
+	   myrobot.lspeed = -30; /* corner left */
 
 	  }else if (robo_lineSensor() == 3)
 	  {
 	    count = 0;
-	    myrobot.rspeed = -LOW_SPEED; 
-	   myrobot.lspeed = MEDIUM_SPEED; /* corner right */
+	    myrobot.rspeed = -40; 
+	   myrobot.lspeed = 80; /* corner right */
 	  }else if (robo_lineSensor() == 0)
 	  {
 	  	count+=1;
 		if(count>=30){
 			myrobot.rspeed= 70;
-			myrobot.lspeed = MEDIUM_SPEED;
+			myrobot.lspeed = 50;
 			// count = 0;
 		} else {
 			myrobot.rspeed = -50; 
@@ -138,7 +138,7 @@ void Navig (void *data)
 
 	  }else{
 	  	myrobot.rspeed = 50; 
-	   	myrobot.lspeed = 75; /* bias left */
+	   	myrobot.lspeed = 80; /* bias left */
 	  
 	  }
   
@@ -146,8 +146,8 @@ void Navig (void *data)
 	// for light sensor
 	  if (robo_lightSensor() > 80) /* it is too bright, I'm photophobia */
 	  {
-	   myrobot.rspeed = -LOW_SPEED; /* turn right to avoid */
-	   myrobot.lspeed = LOW_SPEED;
+	   myrobot.rspeed = -35; /* turn right to avoid */
+	   myrobot.lspeed = 35;
 	  }else {
 
 	  	
