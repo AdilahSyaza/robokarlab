@@ -56,7 +56,7 @@ void CntrlMotors (void *data)
   speed_r = myrobot.rspeed;
   speed_l = myrobot.lspeed;
   robo_motorSpeed(speed_l, speed_r);
-  OSTimeDlyHMSM(0, 0, 0, 5); /* Task period ~ 250 ms */
+  OSTimeDlyHMSM(0, 0, 0, 10); /* Task period ~ 250 ms */
  }
 }
 
@@ -78,29 +78,41 @@ void Navig (void *data)
 	  {
 	   myrobot.rspeed = MEDIUM_SPEED;
 	   myrobot.lspeed = MEDIUM_SPEED;
-	  }else if (robo_lineSensor() == 1)
-	  {
-	    myrobot.rspeed = MEDIUM_SPEED; /* turn left */
-	   myrobot.lspeed = -MEDIUM_SPEED;
 	  }else if (robo_lineSensor() == 4)
+	  {
+	    myrobot.rspeed = MEDIUM_SPEED ;/* turn left */
+	   myrobot.lspeed =  -MEDIUM_SPEED;
+	  }else if (robo_lineSensor() == 1)
 	  {
 	    myrobot.rspeed = -MEDIUM_SPEED; 
 	   myrobot.lspeed = MEDIUM_SPEED; /* turn right */
-	  }else if (robo_lineSensor() == 3)
+
+	  }else if (robo_lineSensor() == 6)
 	  {
 	    myrobot.rspeed = MEDIUM_SPEED; 
 	   myrobot.lspeed = LOW_SPEED; /* corner left */
 
-	  }else if (robo_lineSensor() == 6)
+	  }else if (robo_lineSensor() == 3)
 	  {
 	    myrobot.rspeed = LOW_SPEED; 
 	   myrobot.lspeed = MEDIUM_SPEED; /* corner right */
 	  }else if (robo_lineSensor() == 0)
 	  {
-	  	
+	  	 
 	    myrobot.rspeed = -LOW_SPEED; 
-	    myrobot.lspeed = -LOW_SPEED; /* stranded straight */
+	    myrobot.lspeed = STOP_SPEED; /* stranded straight */
+		/*
+		*data ++;
+		if(*data>=3){
+			myrobot.rspeed = STOP_SPEED; 
+		    myrobot.lspeed = -LOW_SPEED;
+		}
+		*/
 		
+	  }else{
+	  myrobot.rspeed = MEDIUM_SPEED; 
+	   myrobot.lspeed = MEDIUM_SPEED; /* turn right */
+	  
 	  }
   
 
@@ -109,12 +121,14 @@ void Navig (void *data)
 	  {
 	   myrobot.rspeed = -LOW_SPEED; /* turn right to avoid */
 	   myrobot.lspeed = LOW_SPEED;
-	  }else{
+	  }else {
+
+	  	
 	  }
   }
   
 
-	OSTimeDlyHMSM(0, 0, 0, 5);
+	OSTimeDlyHMSM(0, 0, 0, 10);
 	
   /* OSTimeDlyHMSM(0, 0, 0, 10); Task period ~ 500 ms */
  }
@@ -126,7 +140,7 @@ void Navig (void *data)
 void TaskStart( void *data )
 {
  OS_ticks_init(); /* enable RTOS timer tick */
-
+	int  counter;
  OSTaskCreate(CheckCollision , /* Task function */
  (void *)0, /* nothing passed to task */
  (void *)&ChkCollideStk[TASK_STK_SZ - 1], /* stack allocated to task */
@@ -138,7 +152,7 @@ void TaskStart( void *data )
  TASK_CTRLMOTOR_PRIO); /* priority of task */
 
  OSTaskCreate(Navig, /* Task function */
- (void *)0, /* nothing passed to task */
+ (void *)&counter, /* nothing passed to task */
  (void *)&NavigStk[TASK_STK_SZ - 1], /* stack allocated to task */
  TASK_NAVIG_PRIO); /* priority of task */
 
@@ -168,3 +182,4 @@ int main( void )
  OSStart(); /* Start multitasking */
  while (1); /* die here */
 }
+
