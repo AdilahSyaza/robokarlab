@@ -15,14 +15,14 @@
 
 #define STOP_SPEED 0
 #define LOW_SPEED 35
-#define MEDIUM_SPEED 55
+#define MEDIUM_SPEED 50
 #define HIGH_SPEED 80
 
 OS_STK TaskStartStk[TASK_STK_SZ]; /* TaskStartTask stack */
 OS_STK ChkCollideStk[TASK_STK_SZ]; /* Task StopOnCollide stack */
 OS_STK CtrlmotorStk[TASK_STK_SZ]; /* Task CtrlMotors stack */
 OS_STK NavigStk[TASK_STK_SZ]; /* Task NavigRobot stack */
-
+int count;
 /* ------ Global shared variable -------*/
 /* Ideally, this should be protected by a semaphore etc */
 struct robostate
@@ -76,31 +76,43 @@ void Navig (void *data)
   }else{
   	  if (robo_lineSensor() == 2) /* go straight */
 	  {
-	   myrobot.rspeed = MEDIUM_SPEED;
-	   myrobot.lspeed = MEDIUM_SPEED;
+	   count = 0;
+	   myrobot.rspeed = 60;
+	   myrobot.lspeed = 60;
 	  }else if (robo_lineSensor() == 4)
 	  {
-	    myrobot.rspeed = MEDIUM_SPEED ;/* turn left */
-	   myrobot.lspeed =  -MEDIUM_SPEED;
+	   count = 0;
+	    myrobot.rspeed = 70 ;/* turn left */
+	   myrobot.lspeed =  -40;
 	  }else if (robo_lineSensor() == 1)
 	  {
+	    count = 0;
 	    myrobot.rspeed = -MEDIUM_SPEED; 
-	   myrobot.lspeed = MEDIUM_SPEED; /* turn right */
+	   myrobot.lspeed = 70; /* turn right */
 
 	  }else if (robo_lineSensor() == 6)
 	  {
+	    count = 0;
 	    myrobot.rspeed = MEDIUM_SPEED; 
-	   myrobot.lspeed = LOW_SPEED; /* corner left */
+	   myrobot.lspeed = -LOW_SPEED; /* corner left */
 
 	  }else if (robo_lineSensor() == 3)
 	  {
-	    myrobot.rspeed = LOW_SPEED; 
+	    count = 0;
+	    myrobot.rspeed = -LOW_SPEED; 
 	   myrobot.lspeed = MEDIUM_SPEED; /* corner right */
 	  }else if (robo_lineSensor() == 0)
 	  {
-	  	 
-	    myrobot.rspeed = -LOW_SPEED; 
-	    myrobot.lspeed = STOP_SPEED; /* stranded straight */
+	  	count+=1;
+		if(count>=30){
+			myrobot.rspeed= 70;
+			myrobot.lspeed = MEDIUM_SPEED;
+			// count = 0;
+		} else {
+			myrobot.rspeed = -50; 
+	    	myrobot.lspeed = -40;
+		}
+	    
 		/*
 		*data ++;
 		if(*data>=3){
@@ -108,10 +120,25 @@ void Navig (void *data)
 		    myrobot.lspeed = -LOW_SPEED;
 		}
 		*/
-		
+		/*
+		if (rand() % 2 == 0)
+                    {
+                        myrobot.rspeed = -LOW_SPEED;
+                        myrobot.lspeed = -MEDIUM_SPEED;
+                    }
+                    else
+                    {
+                        myrobot.rspeed = -MEDIUM_SPEED;
+                        myrobot.lspeed = -LOW_SPEED;
+                    }
+		*/
+
+
+		//OSTimeDlyHMSM(0, 0, 0, 20);
+
 	  }else{
-	  myrobot.rspeed = MEDIUM_SPEED; 
-	   myrobot.lspeed = MEDIUM_SPEED; /* turn right */
+	  	myrobot.rspeed = 50; 
+	   	myrobot.lspeed = 75; /* bias left */
 	  
 	  }
   
@@ -173,7 +200,7 @@ int main( void )
  myrobot.rspeed = STOP_SPEED; /* Initialize myrobot states */
  myrobot.lspeed = STOP_SPEED;
  myrobot.obstacle = 0; /* No collisioin */
-
+ count =0;
  OSTaskCreate(TaskStart, /* create TaskStart Task */
  (void *)0,
  (void *)&TaskStartStk[TASK_STK_SZ - 1],
