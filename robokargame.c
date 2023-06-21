@@ -24,6 +24,8 @@ OS_STK CtrlmotorStk[TASK_STK_SZ]; /* Task CtrlMotors stack */
 OS_STK NavigStk[TASK_STK_SZ]; /* Task NavigRobot stack */
 int count;
 /* ------ Global shared variable -------*/
+_Bool seven = 1;
+
 /* Ideally, this should be protected by a semaphore etc */
 struct robostate
 {
@@ -37,9 +39,9 @@ void CheckCollision (void *data)
 {
  for(;;)
  {
-  if ( (robo_proxSensor() == 1) ) /* obstacle? */
+  if ( (robo_proxSensor() == 1) ){ /* obstacle? */
      myrobot.obstacle = 1; /* signal obstacle present */
- else
+ }else
      myrobot.obstacle = 0; /* signal no obstacle */
 
  OSTimeDlyHMSM(0, 0, 0, 100); /* Task period ~ 100 ms */
@@ -71,14 +73,24 @@ void Navig (void *data)
  {
   if (myrobot.obstacle == 1) /* If blocked then reverse */
   {
-   myrobot.rspeed = -LOW_SPEED; /* REVERSE */
-   myrobot.lspeed = -LOW_SPEED;
+  	
+   myrobot.rspeed = -20; /* REVERSE */
+   myrobot.lspeed = 80;
+	OSTimeDlyHMSM(0, 0, 0, 250);
+   myrobot.rspeed = 70;
+	myrobot.lspeed = 70;
+	OSTimeDlyHMSM(0, 0, 1, 0);
+   if(robo_lineSensor()==0){
+       myrobot.rspeed = 35;
+	   myrobot.lspeed = 35;
+   }
   }else{
+  robo_LED_off();
   	  if (robo_lineSensor() == 2) /* go straight */
 	  {
 	   count = 0;
-	   myrobot.rspeed = 60;
-	   myrobot.lspeed = 60;
+	   myrobot.rspeed = 70;
+	   myrobot.lspeed = 80;
 	  }else if (robo_lineSensor() == 4)
 	  {
 	   count = 0;
@@ -103,7 +115,7 @@ void Navig (void *data)
 	   myrobot.lspeed = 80; /* corner right */
 	  }else if (robo_lineSensor() == 0)
 	  {
-	  	count+=1;
+	  	/*count+=1;
 		if(count>=30){
 			myrobot.rspeed= 70;
 			myrobot.lspeed = 50;
@@ -111,7 +123,9 @@ void Navig (void *data)
 		} else {
 			myrobot.rspeed = -50; 
 	    	myrobot.lspeed = -40;
-		}
+		}*/
+			myrobot.rspeed = -50; 
+	    	myrobot.lspeed = -40;
 	    
 		/*
 		*data ++;
@@ -136,9 +150,35 @@ void Navig (void *data)
 
 		//OSTimeDlyHMSM(0, 0, 0, 20);
 
+	  }else if (robo_lineSensor() == 5)
+	  {
+	  	myrobot.rspeed = 80; 
+	   	myrobot.lspeed = 60;
+	  }
+		else if (robo_lineSensor() == 7)
+	  {
+	  	myrobot.rspeed = 60; 
+	   	myrobot.lspeed = 80;
+	  }
+	  else{
+	  }
+	
+	  /*else{
+	  
+
+	  if(seven){
+		myrobot.rspeed = 80; 
+	   	myrobot.lspeed = 60;  bias left 
+		seven=0;
 	  }else{
-	  	myrobot.rspeed = 50; 
-	   	myrobot.lspeed = 80; /* bias left */
+	  robo_LED_on(); 
+		myrobot.rspeed = 60; 
+	   	myrobot.lspeed = 80;  bias right 
+		seven=1;
+	  }*/
+		/* myrobot.rspeed = 50; 
+	   	myrobot.lspeed = 80; /* bias right */
+
 	  
 	  }
   
@@ -146,8 +186,8 @@ void Navig (void *data)
 	// for light sensor
 	  if (robo_lightSensor() > 80) /* it is too bright, I'm photophobia */
 	  {
-	   myrobot.rspeed = -35; /* turn right to avoid */
-	   myrobot.lspeed = 35;
+	   myrobot.rspeed = 70; /* turn left */
+	   myrobot.lspeed = 50;
 	  }else {
 
 	  	
@@ -199,7 +239,7 @@ int main( void )
  robo_motorSpeed(STOP_SPEED, STOP_SPEED); /* Stop the robot, value STOP_SPEED == 0 */
  myrobot.rspeed = STOP_SPEED; /* Initialize myrobot states */
  myrobot.lspeed = STOP_SPEED;
- myrobot.obstacle = 0; /* No collisioin */
+ myrobot.obstacle = 0; /* No collision */
  count =0;
  OSTaskCreate(TaskStart, /* create TaskStart Task */
  (void *)0,

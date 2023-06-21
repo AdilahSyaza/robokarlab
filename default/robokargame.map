@@ -9,7 +9,7 @@ c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udi
 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
                               c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega328p.o (exit)
 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
-                              C:\RTprog2023\obj\hal_robo.o (__do_copy_data)
+                              robokargame.o (__do_copy_data)
 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
                               robokargame.o (__do_clear_bss)
 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
@@ -171,7 +171,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1274
+.text           0x00000000     0x12be
  *(.vectors)
  .vectors       0x00000000       0x68 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -255,196 +255,196 @@ END GROUP
                 0x000000a2                __vector_10
                 0x000000a2                __vector_18
                 0x000000a2                __vector_20
- .text          0x000000a6      0x1fe robokargame.o
+ .text          0x000000a6      0x248 robokargame.o
                 0x000000a6                CheckCollision
                 0x000000ca                CntrlMotors
                 0x000000ee                Navig
-                0x00000246                TaskStart
- .text          0x000002a4      0x4c2 C:\RTprog2023\obj\hal_robo.o
-                0x000002a4                ADC_init
-                0x000002b2                ADC_read
-                0x000002e4                PWM8_write
-                0x000002fc                motor_init
-                0x00000342                motor_set_speed
-                0x0000038a                motor_set_dir
-                0x00000434                robo_motorSpeed
-                0x00000490                USART0_init
-                0x000004aa                cputchar
-                0x000004b8                cgetchar
-                0x000004d2                cputs
-                0x000004ea                robo_proxSensor
-                0x00000502                robo_lightSensor
-                0x00000530                robo_lineSensor
-                0x00000558                robo_bumpSensorR
-                0x00000568                robo_bumpSensorL
-                0x0000057a                robo_Honk
-                0x000005a4                robo_checkBattery
-                0x000005b8                robo_goPressed
-                0x000005c6                robo_wait4goPress
-                0x000005d0                OS_ticks_init
-                0x000005e4                HAL_init
-                0x000005ee                robo_Setup
-                0x00000626                cprintf
- .text          0x00000766      0x9f2 C:\RTprog2023\obj\kernel.o
-                0x00000766                OSStartHighRdy
-                0x000007c6                OSCtxSw
-                0x00000880                OSIntCtxSw
-                0x000008e6                OSTickISR
-                0x000008e6                __vector_16
-                0x000009a4                OSTaskStkInit
-                0x00000a38                OSTaskCreateHook
-                0x00000a3a                OSTaskDelHook
-                0x00000a3c                OSTaskSwHook
-                0x00000a3e                OSTaskStatHook
-                0x00000a40                OSTimeTickHook
-                0x00000a42                OSInitHookBegin
-                0x00000a44                OSInitHookEnd
-                0x00000a46                OSTaskIdleHook
-                0x00000a48                OSTCBInitHook
-                0x00000a4a                OS_TaskIdle
-                0x00000a7a                OSIntEnter
-                0x00000a92                OSIntExit
-                0x00000b36                OSSchedLock
-                0x00000b52                OSStart
-                0x00000bac                OSTimeTick
-                0x00000c12                OSVersion
-                0x00000c18                OS_Dummy
-                0x00000c1a                OS_Sched
-                0x00000ca2                OSSchedUnlock
-                0x00000d1c                OS_TCBInit
-                0x00000de0                OSTaskCreate
-                0x00000e8a                OSInit
-                0x00000f3e                OSTaskDel
-                0x00001042                OSTaskDelReq
-                0x00001078                OSTimeDly
-                0x00001082                OSTimeDlyHMSM
- .text          0x00001158        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
- .text          0x00001158        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
- .text          0x00001158        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
- .text          0x00001158        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
- .text          0x00001158        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
- .text          0x00001158        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
- .text          0x00001158        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
- .text          0x00001158        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
-                0x00001158                . = ALIGN (0x2)
+                0x00000290                TaskStart
+ .text          0x000002ee      0x4c2 C:\RTprog2023\obj\hal_robo.o
+                0x000002ee                ADC_init
+                0x000002fc                ADC_read
+                0x0000032e                PWM8_write
+                0x00000346                motor_init
+                0x0000038c                motor_set_speed
+                0x000003d4                motor_set_dir
+                0x0000047e                robo_motorSpeed
+                0x000004da                USART0_init
+                0x000004f4                cputchar
+                0x00000502                cgetchar
+                0x0000051c                cputs
+                0x00000534                robo_proxSensor
+                0x0000054c                robo_lightSensor
+                0x0000057a                robo_lineSensor
+                0x000005a2                robo_bumpSensorR
+                0x000005b2                robo_bumpSensorL
+                0x000005c4                robo_Honk
+                0x000005ee                robo_checkBattery
+                0x00000602                robo_goPressed
+                0x00000610                robo_wait4goPress
+                0x0000061a                OS_ticks_init
+                0x0000062e                HAL_init
+                0x00000638                robo_Setup
+                0x00000670                cprintf
+ .text          0x000007b0      0x9f2 C:\RTprog2023\obj\kernel.o
+                0x000007b0                OSStartHighRdy
+                0x00000810                OSCtxSw
+                0x000008ca                OSIntCtxSw
+                0x00000930                OSTickISR
+                0x00000930                __vector_16
+                0x000009ee                OSTaskStkInit
+                0x00000a82                OSTaskCreateHook
+                0x00000a84                OSTaskDelHook
+                0x00000a86                OSTaskSwHook
+                0x00000a88                OSTaskStatHook
+                0x00000a8a                OSTimeTickHook
+                0x00000a8c                OSInitHookBegin
+                0x00000a8e                OSInitHookEnd
+                0x00000a90                OSTaskIdleHook
+                0x00000a92                OSTCBInitHook
+                0x00000a94                OS_TaskIdle
+                0x00000ac4                OSIntEnter
+                0x00000adc                OSIntExit
+                0x00000b80                OSSchedLock
+                0x00000b9c                OSStart
+                0x00000bf6                OSTimeTick
+                0x00000c5c                OSVersion
+                0x00000c62                OS_Dummy
+                0x00000c64                OS_Sched
+                0x00000cec                OSSchedUnlock
+                0x00000d66                OS_TCBInit
+                0x00000e2a                OSTaskCreate
+                0x00000ed4                OSInit
+                0x00000f88                OSTaskDel
+                0x0000108c                OSTaskDelReq
+                0x000010c2                OSTimeDly
+                0x000010cc                OSTimeDlyHMSM
+ .text          0x000011a2        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text          0x000011a2        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .text          0x000011a2        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x000011a2        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .text          0x000011a2        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .text          0x000011a2        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .text          0x000011a2        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .text          0x000011a2        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+                0x000011a2                . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x00001158       0x50 robokargame.o
-                0x00001158                main
+ .text.startup  0x000011a2       0x50 robokargame.o
+                0x000011a2                main
  .text.libgcc.mul
-                0x000011a8        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x000011f2        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
  .text.libgcc.div
-                0x000011a8       0x28 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
-                0x000011a8                __udivmodhi4
- .text.libgcc   0x000011d0        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x000011f2       0x28 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x000011f2                __udivmodhi4
+ .text.libgcc   0x0000121a        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
  .text.libgcc.prologue
-                0x000011d0        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000121a        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
  .text.libgcc.builtins
-                0x000011d0        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000121a        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
  .text.libgcc.fmul
-                0x000011d0        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000121a        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
  .text.libgcc.fixed
-                0x000011d0        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000121a        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
  .text.libgcc.mul
-                0x000011d0        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+                0x0000121a        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
  .text.libgcc.div
-                0x000011d0       0x28 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
-                0x000011d0                _div
-                0x000011d0                __divmodhi4
- .text.libgcc   0x000011f8        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+                0x0000121a       0x28 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+                0x0000121a                _div
+                0x0000121a                __divmodhi4
+ .text.libgcc   0x00001242        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
  .text.libgcc.prologue
-                0x000011f8        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+                0x00001242        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
  .text.libgcc.builtins
-                0x000011f8        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+                0x00001242        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
  .text.libgcc.fmul
-                0x000011f8        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+                0x00001242        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
  .text.libgcc.fixed
-                0x000011f8        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+                0x00001242        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
  .text.libgcc.mul
-                0x000011f8        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001242        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
  .text.libgcc.div
-                0x000011f8       0x44 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x000011f8                __udivmodsi4
- .text.libgcc   0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001242       0x44 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001242                __udivmodsi4
+ .text.libgcc   0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
  .text.libgcc.prologue
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
  .text.libgcc.builtins
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
  .text.libgcc.fmul
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
  .text.libgcc.fixed
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
  .text.libgcc.mul
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.div
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.div
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.prologue
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.builtins
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
-                0x0000123c        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+                0x00001286        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.mul
-                0x0000123c       0x1e c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
-                0x0000123c                __umulhisi3
+                0x00001286       0x1e c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x00001286                __umulhisi3
  .text.libgcc.div
-                0x0000125a        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
- .text.libgcc   0x0000125a        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x000012a4        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .text.libgcc   0x000012a4        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
  .text.libgcc.prologue
-                0x0000125a        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x000012a4        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
  .text.libgcc.builtins
-                0x0000125a        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x000012a4        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
  .text.libgcc.fmul
-                0x0000125a        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x000012a4        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
  .text.libgcc.fixed
-                0x0000125a        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+                0x000012a4        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
  .text.libgcc.mul
-                0x0000125a       0x16 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
-                0x0000125a                __muluhisi3
+                0x000012a4       0x16 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+                0x000012a4                __muluhisi3
  .text.libgcc.div
-                0x00001270        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
- .text.libgcc   0x00001270        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+                0x000012ba        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .text.libgcc   0x000012ba        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
  .text.libgcc.prologue
-                0x00001270        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+                0x000012ba        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
  .text.libgcc.builtins
-                0x00001270        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+                0x000012ba        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
  .text.libgcc.fmul
-                0x00001270        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+                0x000012ba        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
  .text.libgcc.fixed
-                0x00001270        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
-                0x00001270                . = ALIGN (0x2)
+                0x000012ba        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+                0x000012ba                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001270        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
-                0x00001270                _exit
-                0x00001270                exit
+ .fini9         0x000012ba        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+                0x000012ba                _exit
+                0x000012ba                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -463,35 +463,35 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001270        0x4 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x000012ba        0x4 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001274                _etext = .
+                0x000012be                _etext = .
 
-.data           0x00800100      0x11a load address 0x00001274
+.data           0x00800100      0x11a load address 0x000012be
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega328p.o
- .data          0x00800100        0x0 robokargame.o
- .data          0x00800100        0x0 C:\RTprog2023\obj\hal_robo.o
- .data          0x00800100      0x108 C:\RTprog2023\obj\kernel.o
-                0x00800100                OSUnMapTbl
-                0x00800200                OSMapTbl
- .data          0x00800208        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
- .data          0x00800208        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
- .data          0x00800208        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
- .data          0x00800208        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
- .data          0x00800208        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
- .data          0x00800208        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
- .data          0x00800208        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
- .data          0x00800208        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .data          0x00800100        0x1 robokargame.o
+                0x00800100                seven
+ .data          0x00800101        0x0 C:\RTprog2023\obj\hal_robo.o
+ .data          0x00800101      0x108 C:\RTprog2023\obj\kernel.o
+                0x00800101                OSUnMapTbl
+                0x00800201                OSMapTbl
+ .data          0x00800209        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .data          0x00800209        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .data          0x00800209        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x00800209        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .data          0x00800209        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800209        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800209        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .data          0x00800209        0x0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
  *(.data*)
  *(.gnu.linkonce.d*)
  *(.rodata)
- .rodata        0x00800208       0x11 C:\RTprog2023\obj\hal_robo.o
+ .rodata        0x00800209       0x11 C:\RTprog2023\obj\hal_robo.o
  *(.rodata*)
  *(.gnu.linkonce.r*)
                 0x0080021a                . = ALIGN (0x2)
- *fill*         0x00800219        0x1 
                 0x0080021a                _edata = .
                 0x0080021a                PROVIDE (__data_end, .)
 
@@ -542,8 +542,8 @@ END GROUP
                 0x00800484                OSTCBTbl
                 0x00800583                OSTCBPrioTbl
                 0x008005a5                PROVIDE (__bss_end, .)
-                0x00001274                __data_load_start = LOADADDR (.data)
-                0x0000138e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000012be                __data_load_start = LOADADDR (.data)
+                0x000013d8                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008005a5        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -642,19 +642,19 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x147e
+.debug_info     0x00000000     0x14e5
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega328p.o
- .debug_info    0x000005f4      0x829 robokargame.o
- .debug_info    0x00000e1d       0x89 C:\RTprog2023\obj\kernel.o
- .debug_info    0x00000ea6       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
- .debug_info    0x00000f61       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
- .debug_info    0x0000101c       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
- .debug_info    0x000010d7       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
- .debug_info    0x00001192       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
- .debug_info    0x0000124d       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
- .debug_info    0x00001308       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
- .debug_info    0x000013c3       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .debug_info    0x000005f4      0x890 robokargame.o
+ .debug_info    0x00000e84       0x89 C:\RTprog2023\obj\kernel.o
+ .debug_info    0x00000f0d       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .debug_info    0x00000fc8       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .debug_info    0x00001083       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .debug_info    0x0000113e       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .debug_info    0x000011f9       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .debug_info    0x000012b4       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .debug_info    0x0000136f       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .debug_info    0x0000142a       0xbb c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
 
 .debug_abbrev   0x00000000      0x83e
  *(.debug_abbrev)
@@ -670,29 +670,29 @@ END GROUP
  .debug_abbrev  0x00000816       0x14 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
  .debug_abbrev  0x0000082a       0x14 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
 
-.debug_line     0x00000000      0xa59
+.debug_line     0x00000000      0xa95
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000       0x1a c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega328p.o
- .debug_line    0x0000001a      0x2d8 robokargame.o
- .debug_line    0x000002f2      0x1ed C:\RTprog2023\obj\kernel.o
- .debug_line    0x000004df       0xce c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
- .debug_line    0x000005ad       0xc8 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
- .debug_line    0x00000675      0x122 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
- .debug_line    0x00000797       0x62 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
- .debug_line    0x000007f9       0x98 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
- .debug_line    0x00000891       0x86 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
- .debug_line    0x00000917       0xb0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
- .debug_line    0x000009c7       0x92 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
+ .debug_line    0x0000001a      0x314 robokargame.o
+ .debug_line    0x0000032e      0x1ed C:\RTprog2023\obj\kernel.o
+ .debug_line    0x0000051b       0xce c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodhi4.o)
+ .debug_line    0x000005e9       0xc8 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_divmodhi4.o)
+ .debug_line    0x000006b1      0x122 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_udivmodsi4.o)
+ .debug_line    0x000007d3       0x62 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_exit.o)
+ .debug_line    0x00000835       0x98 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_copy_data.o)
+ .debug_line    0x000008cd       0x86 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_clear_bss.o)
+ .debug_line    0x00000953       0xb0 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_umulhisi3.o)
+ .debug_line    0x00000a03       0x92 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/avr5\libgcc.a(_muluhisi3.o)
 
 .debug_frame    0x00000000       0x74
  *(.debug_frame)
  .debug_frame   0x00000000       0x74 robokargame.o
 
-.debug_str      0x00000000      0x62f
+.debug_str      0x00000000      0x63b
  *(.debug_str)
  .debug_str     0x00000000      0x208 c:/arduino-1.8.19/hardware/tools/avr/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr5/crtatmega328p.o
- .debug_str     0x00000208      0x427 robokargame.o
-                                0x465 (size before relaxing)
+ .debug_str     0x00000208      0x433 robokargame.o
+                                0x471 (size before relaxing)
 
 .debug_loc      0x00000000       0xe8
  *(.debug_loc)

@@ -1,4 +1,4 @@
-robokargame.o: ../robokargame.c ../..\inc\kernel.h \
+robosample.o: ../robosample.c ../..\inc\kernel.h \
  c:\arduino-1.8.19\hardware\tools\avr\avr\include\avr\io.h \
  c:\arduino-1.8.19\hardware\tools\avr\avr\include\avr\sfr_defs.h \
  c:\arduino-1.8.19\hardware\tools\avr\avr\include\inttypes.h \
