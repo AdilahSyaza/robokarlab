@@ -25,6 +25,7 @@ OS_STK NavigStk[TASK_STK_SZ]; /* Task NavigRobot stack */
 int count;
 /* ------ Global shared variable -------*/
 _Bool seven = 1;
+int pastLight = 0;
 
 /* Ideally, this should be protected by a semaphore etc */
 struct robostate
@@ -71,97 +72,131 @@ void Navig (void *data)
 
  for (;;)
  {
+ 	cprintf("%d \n", robo_lineSensor());
   if (myrobot.obstacle == 1) /* If blocked then reverse */
   {
+  	if (pastLight == 1) /* If blocked then stop */
+		  {
+		  	myrobot.rspeed = 0; /* stop */
+		   myrobot.lspeed = 0;
+			robo_Honk();
+			break;
+		  }else{
+		  myrobot.rspeed = -20; /* REVERSE */
+		   myrobot.lspeed = 80;
+			OSTimeDlyHMSM(0, 0, 0, 250);
+		   myrobot.rspeed = 70;
+			myrobot.lspeed = 70;
+			OSTimeDlyHMSM(0, 0, 1, 0);
+		  }
   	
-   myrobot.rspeed = -20; /* REVERSE */
-   myrobot.lspeed = 80;
-	OSTimeDlyHMSM(0, 0, 0, 250);
-   myrobot.rspeed = 70;
-	myrobot.lspeed = 70;
-	OSTimeDlyHMSM(0, 0, 1, 0);
-   if(robo_lineSensor()==0){
-       myrobot.rspeed = 35;
-	   myrobot.lspeed = 35;
-   }
+   
   }else{
   robo_LED_off();
-  	  if (robo_lineSensor() == 2) /* go straight */
+  	
+	if(pastLight==1){
+
+		switch (robo_lineSensor()) {
+			case 1:	//turn right
+				myrobot.rspeed = -30;          
+		        myrobot.lspeed = 50;
+				break;
+		    case 3:	//corner right
+		        myrobot.rspeed = -40;          
+		        myrobot.lspeed = 50;
+				break;
+		    case 2:	//forward
+				myrobot.rspeed = 60;          
+		        myrobot.lspeed = 50;
+				break;
+		    case 6:	//corner left
+				myrobot.rspeed = 55;          
+		        myrobot.lspeed = -40;
+				break;
+		    case 4:	//turn left
+		        myrobot.rspeed = 50;          
+		        myrobot.lspeed = -30;
+				break;
+			case 7:
+		        myrobot.rspeed = 60;       
+		        myrobot.lspeed = 45;
+				//printf("%d\n", robo_lineSensor());
+				break;
+		    case 0:	//reverse
+		        myrobot.rspeed = -30;          
+		        myrobot.lspeed = -50;
+				//printf("%d\n", robo_lineSensor());
+				break;
+			default:
+				//myrobot.rspeed = 50;          
+		        //myrobot.lspeed = 40;
+				break;
+		} 
+
+		
+
+	}
+	else{
+
+	if (robo_lineSensor() == 2) /* go straight */
 	  {
 	   count = 0;
-	   myrobot.rspeed = 70;
-	   myrobot.lspeed = 80;
+	   myrobot.rspeed = 60;
+	   myrobot.lspeed = 70;
 	  }else if (robo_lineSensor() == 4)
 	  {
 	   count = 0;
-	    myrobot.rspeed = 80 ;/* turn left */
-	   myrobot.lspeed =  -50;
+	    myrobot.rspeed = 70 ;/* turn left */
+	   myrobot.lspeed =  -40;
 	  }else if (robo_lineSensor() == 1)
 	  {
 
-	    myrobot.rspeed = -50; 
-	   myrobot.lspeed = 80; /* turn right */
+	    myrobot.rspeed = -40; 
+	   myrobot.lspeed = 70; /* turn right */
 
 	  }else if (robo_lineSensor() == 6)
 	  {
 
-	    myrobot.rspeed = 65; 
-	   myrobot.lspeed = -30; /* corner left */
+	    myrobot.rspeed = 55; 
+	   myrobot.lspeed = -20; /* corner left */
 
 	  }else if (robo_lineSensor() == 3)
 	  {
 	    count = 0;
-	    myrobot.rspeed = -40; 
-	   myrobot.lspeed = 80; /* corner right */
+	    myrobot.rspeed = -30; 
+	   myrobot.lspeed = 70; /* corner right */
 	  }else if (robo_lineSensor() == 0)
 	  {
-	  	/*count+=1;
-		if(count>=30){
-			myrobot.rspeed= 70;
-			myrobot.lspeed = 50;
-			// count = 0;
-		} else {
-			myrobot.rspeed = -50; 
-	    	myrobot.lspeed = -40;
-		}*/
-			myrobot.rspeed = -50; 
-	    	myrobot.lspeed = -40;
+
+			myrobot.rspeed = -70; 
+	    	myrobot.lspeed = -20;
 	    
-		/*
-		*data ++;
-		if(*data>=3){
-			myrobot.rspeed = STOP_SPEED; 
-		    myrobot.lspeed = -LOW_SPEED;
-		}
-		*/
-		/*
-		if (rand() % 2 == 0)
-                    {
-                        myrobot.rspeed = -LOW_SPEED;
-                        myrobot.lspeed = -MEDIUM_SPEED;
-                    }
-                    else
-                    {
-                        myrobot.rspeed = -MEDIUM_SPEED;
-                        myrobot.lspeed = -LOW_SPEED;
-                    }
-		*/
-
-
-		//OSTimeDlyHMSM(0, 0, 0, 20);
-
-	  }else if (robo_lineSensor() == 5)
-	  {
-	  	myrobot.rspeed = 80; 
-	   	myrobot.lspeed = 60;
 	  }
+
 		else if (robo_lineSensor() == 7)
 	  {
-	  	myrobot.rspeed = 60; 
-	   	myrobot.lspeed = 80;
+	  	myrobot.rspeed = 90; 
+	   	myrobot.lspeed = 50;
+		OSTimeDlyHMSM(0, 0, 0, 20);
+
+		/*
+		if(seven){
+			myrobot.rspeed = 80; 
+		   	myrobot.lspeed = 60; 
+			seven=0;
+		  }else{
+		  robo_LED_on(); 
+			myrobot.rspeed = 60; 
+		   	myrobot.lspeed = 80; 
+			seven=1;
+		  }
+		  */
 	  }
 	  else{
 	  }
+
+	}
+  	  
 	
 	  /*else{
 	  
@@ -184,14 +219,18 @@ void Navig (void *data)
   
 
 	// for light sensor
-	  if (robo_lightSensor() > 80) /* it is too bright, I'm photophobia */
+	
+	  if (robo_lightSensor() > 80)
 	  {
-	   myrobot.rspeed = 70; /* turn left */
-	   myrobot.lspeed = 50;
+	   myrobot.rspeed = 70;
+	   myrobot.lspeed = 10;
+	   OSTimeDlyHMSM(0, 0, 0, 100);
+	   pastLight = 1;
 	  }else {
 
 	  	
 	  }
+	  
   }
   
 
@@ -199,7 +238,7 @@ void Navig (void *data)
 	
   /* OSTimeDlyHMSM(0, 0, 0, 10); Task period ~ 500 ms */
  }
-}
+
 
 
 /*------Highest pririority task----------*/
@@ -249,4 +288,3 @@ int main( void )
  OSStart(); /* Start multitasking */
  while (1); /* die here */
 }
-
