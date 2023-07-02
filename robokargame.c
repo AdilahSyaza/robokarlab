@@ -16,7 +16,7 @@
 #define STOP_SPEED 0
 #define LOW_SPEED 35
 #define MEDIUM_SPEED 50
-#define HIGH_SPEED 80
+#define HIGH_SPEED 80c
 
 OS_STK TaskStartStk[TASK_STK_SZ]; /* TaskStartTask stack */
 OS_STK ChkCollideStk[TASK_STK_SZ]; /* Task StopOnCollide stack */
@@ -106,8 +106,8 @@ void Navig (void *data)
 		        myrobot.lspeed = 50;
 				break;
 		    case 2:	//forward
-				myrobot.rspeed = 60;          
-		        myrobot.lspeed = 50;
+				myrobot.rspeed = 70;          
+		        myrobot.lspeed = 60;
 				break;
 		    case 6:	//corner left
 				myrobot.rspeed = 55;          
@@ -141,8 +141,8 @@ void Navig (void *data)
 	if (robo_lineSensor() == 2) /* go straight */
 	  {
 	   count = 0;
-	   myrobot.rspeed = 60;
-	   myrobot.lspeed = 70;
+	   myrobot.rspeed = 75;
+	   myrobot.lspeed = 90;
 	  }else if (robo_lineSensor() == 4)
 	  {
 	   count = 0;
